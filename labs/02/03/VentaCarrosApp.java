@@ -1,3 +1,7 @@
+/**
+ *
+ * @author Santiago Rubiano 7004147
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
