@@ -25,8 +25,8 @@ public class SimuladorJ extends JFrame{
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
        TemporizadorLabel = new JLabel("Temporizador");
-       Indicador1 = new JLabel("Pedalazos");
-       Indicador2 = new JLabel("Velocidad");
+       Indicador1 = new JLabel("Pedales dados: ");
+       Indicador2 = new JLabel("Velocidad ");
        
        PedalIz = new JButton("Pedal izquierdo");
        PedalDer = new JButton ("Pedal derecho");
@@ -43,7 +43,7 @@ public class SimuladorJ extends JFrame{
            public void actionPerformed(ActionEvent e){
            Indicador1.setText("Pedales dados: "+contadorPedalIz);
            Indicador2.setText("Velocidad: "+ "pedales/minuto");
-           TemporizadorLabel.setText(timer);
+
            }
        });
        timer.start();
