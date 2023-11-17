@@ -24,6 +24,9 @@ public class SimuladorJ extends JFrame {
     private JCheckBox autoClickCheckbox;
 
     public SimuladorJ() {
+        
+        //Control Jframe
+        
         setTitle("Simulador de bicicleta estatica");
         setSize(800, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,10 +38,12 @@ public class SimuladorJ extends JFrame {
         JTextField PedalesSolField = new JTextField(2);
 
         JPanel panelClicks = new JPanel();
-        panelClicks.add(new JLabel("Limite de clicks: "));
+        panelClicks.add(new JLabel("Limite de clicks (Debe darle enter para aplicar la funcion): "));
         panelClicks.add(PedalesSolField);
         add(panelClicks);
 
+        //Añadir cositos al Jframe, panel, botones, texto...
+        
         setLayout(new GridLayout(4, 3));
         add(TemporizadorLabel);
         add(Indicador1);
@@ -50,9 +55,13 @@ public class SimuladorJ extends JFrame {
         add(PedalIz);
         add(PedalDer);
 
-        autoClickCheckbox = new JCheckBox("Click automático");
+        //Control automaticamo
+        autoClickCheckbox = new JCheckBox("Pedal automático");
         add(autoClickCheckbox);
 
+        
+        //Interfaz
+        
         timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -69,6 +78,9 @@ public class SimuladorJ extends JFrame {
         });
         timer.start();
 
+        
+        //Pedales
+        
         PedalIz.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,6 +103,8 @@ public class SimuladorJ extends JFrame {
             }
         });
 
+        //Limite de pedales para continuar
+        
         PedalesSolField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
