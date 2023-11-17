@@ -21,6 +21,7 @@ public class SimuladorJ extends JFrame {
     private double velocidad;
     private int limitePedalIzquierdo = 0;
     private int limitePedalDerecho = 0;
+    private JCheckBox autoClickCheckbox;
 
     public SimuladorJ() {
         setTitle("Simulador de bicicleta estatica");
@@ -34,11 +35,11 @@ public class SimuladorJ extends JFrame {
         JTextField PedalesSolField = new JTextField(2);
 
         JPanel panelClicks = new JPanel();
-        panelClicks.add(new JLabel("Limite de clicks(se debe dar enter para que lo aplique): "));
+        panelClicks.add(new JLabel("Limite de clicks: "));
         panelClicks.add(PedalesSolField);
         add(panelClicks);
 
-        setLayout(new GridLayout(3, 3));
+        setLayout(new GridLayout(4, 3));
         add(TemporizadorLabel);
         add(Indicador1);
         add(Indicador2);
@@ -49,6 +50,9 @@ public class SimuladorJ extends JFrame {
         add(PedalIz);
         add(PedalDer);
 
+        autoClickCheckbox = new JCheckBox("Click automático");
+        add(autoClickCheckbox);
+
         timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,6 +61,10 @@ public class SimuladorJ extends JFrame {
                 TemporizadorLabel.setText("Tiempo transcurrido: " + sT + " segundos");
                 Indicador1.setText("Pedales dados: " + contadorPedalIz);
                 Indicador2.setText("Velocidad: " + velocidad + " pedales/minuto");
+
+                if (autoClickCheckbox.isSelected()) {
+                    PedalIz.doClick(); // Simula un clic en el botón izquierdo
+                }
             }
         });
         timer.start();
